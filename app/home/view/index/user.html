@@ -59,11 +59,11 @@
     </div>
     <div class="userTags" style="padding-left: 100px;">
 
-        <div class="userTag">暂无个性签名</div>
+        <div class="userTag">{if $user.sign==null}暂无个性签名{else}{$user.sign}{/if}</div>
 
-        <div class="userTag addTag">
+        <!-- <div class="userTag addTag">
             <i class="fas fa-plus"></i>
-        </div>
+        </div> -->
     </div>
 
     <div class="userCard">

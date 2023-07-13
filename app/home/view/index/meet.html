@@ -1,9 +1,63 @@
+{if $user.lock==0}
+<div class="boxCard" onclick="onMeet()">
+    <div class="boxCardBox">
+        <h2>Meet</h2>
+    </div>
+    <img src="/static/images/shou.png" width="100%" style="opacity: 0.6;margin-top: 10vh;">
+    <div class="boxCardBox" style="text-align: center;">
+        <p id="oncMeet">点击Meet</p>
+
+    </div>
+</div>
+{else}
 <div class="boxCard">
     <div class="boxCardBox">
         <h2>Meet</h2>
     </div>
     <img src="/static/images/shou.png" width="100%" style="opacity: 0.6;margin-top: 10vh;">
     <div class="boxCardBox" style="text-align: center;">
-        <p>点击Meet</p>
+        <p>你已有良人，快去看看Ta吧！</p>
+
     </div>
 </div>
+{/if}
+
+<script>
+    function onMeet() {
+        var lock = "{$user.id}";
+        if (lock == 1) {
+            layer.msg('你已经有了良人哦');
+            return false;
+        }
+
+        $.ajax({
+            url: "{:url('api/api/onMeet')}",
+            data: {
+                id: "{$user.id}"
+            },
+            type: 'POST',
+            beforeSend: function () {
+                $("#oncMeet").text("你正在遇见那个Ta...");
+
+            },
+
+            success: function (data) {
+                // layer.close(loadIndex);
+                if (data.code == 0) {
+                    $("#oncMeet").text("您成功遇见一位良人");
+                    layer.msg(data.info);
+
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 3000);
+                } else {
+                    $("#oncMeet").text("很遗憾，你与良人擦肩而过");
+                    layer.msg(data.info);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 3000);
+                }
+            }
+        });
+    }
+</script>

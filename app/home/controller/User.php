@@ -26,9 +26,9 @@ class User extends BaseController
 
     public function register() //注册页面
     {
-        // if(Session::has('user_id')==true){
-        //     return  redirect('/home/index/index');
-        // }
+        if(Session::has('user_id')==true){
+            return  redirect('/home/index/index');
+        }
         return View::fetch();
     }
 

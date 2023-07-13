@@ -39,6 +39,8 @@ class UserModel extends Model
        // $user->school = $data['school'];//学校
         $user->height = $data['height'];//身高
         $user->initialize = '1';
+        $user->avatar = '/static/images/avatar/1.jpg';
+        $user->background = '/static/images/bg/bg.jpg';
         $user->save();
         $id = $user->id;
         if ($id == null) {
@@ -61,6 +63,8 @@ class UserModel extends Model
             return ['code' => 1, 'info' => '该手机号码不存在'];
         }
     }
+
+    
 
     // public function infoUsers($data) //用户资料修改接口
     // {

@@ -82,13 +82,13 @@
 <div class="layui-tab layui-tab-brief">
 
     <div class="layui-tab-content">
-        <div class="layui-tab-item " style="background-color: #F9F9F9;height: 100%;position: absolute;">
+        <div class="layui-tab-item layui-show" style="background-color: #F9F9F9;height: 100%;position: absolute;">
             <div class="boxCard">
                 {include file="/index/ta"/}
             </div>
         </div>
 
-        <div class="layui-tab-item layui-show" style="background-color: #F5B9B9;height: 100%;position: absolute;">
+        <div class="layui-tab-item" style="background-color: #F5B9B9;height: 100%;position: absolute;">
             <div class="boxCard" style="color: #FFF;">
                 {include file="/index/meet"/}
             </div>
@@ -102,11 +102,11 @@
     </div>
 
     <ul class="layui-tab-title" style="background-color: #F9F9F9;border-top: 1px solid #E9E9E9;">
-        <li>
+        <li class="layui-this">
             <i class="fas fa-comment" style="font-size: 18px;"></i>
             <div>Ta</div>
         </li>
-        <li class="layui-this">
+        <li>
             <i class="fas fa-globe-asia" style="font-size: 18px;"></i>
             <div>Meet</div>
         </li>
