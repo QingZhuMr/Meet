@@ -138,10 +138,27 @@
         </div>
 
     </div>
-    <div class="chatEnter">
-        <input type="text" class="chatEnterFrame" name="text" placeholder="">
+    <div class="chatEnter" id="input">
+        <input type="text" class="chatEnterFrame" name="text" placeholder="" >
         <div class="chatPhiz">
             <i class="far fa-grin-squint"></i>
         </div>
     </div>
 </div>
+<script>
+    const ua = navigator.userAgent;
+    const iOS = /iPad|iPhone|iPod/.test(ua);
+    const input = document.querySelector('#input');
+
+    input.addEventListener('focus', () => {
+        setTimeout(() => {
+            if (iOS) {
+                if (!/OS 11_[0-3]\D/.test(ua)) {
+                    document.body.scrollTop = document.body.scrollHeight;
+                }
+            } else {
+                input.scrollIntoView(false);
+            }
+        }, 300);
+    });
+</script>

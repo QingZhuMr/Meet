@@ -1,6 +1,9 @@
 {include file="common/head"/}
 
 <style>
+    html,body{
+        height: 100%;
+    }
     ::-webkit-scrollbar {
         width: 0px;
     }
@@ -78,13 +81,13 @@
 <div class="layui-tab layui-tab-brief">
 
     <div class="layui-tab-content">
-        <div class="layui-tab-item " style="background-color: #F9F9F9;height: 100vh;">
+        <div class="layui-tab-item " style="background-color: #F9F9F9;height: 100%;position: absolute;">
             <div class="boxCard">
                 {include file="/index/ta"/}
             </div>
         </div>
 
-        <div class="layui-tab-item layui-show" style="background-color: #F5B9B9;height: 100vh;">
+        <div class="layui-tab-item layui-show" style="background-color: #F5B9B9;height: 100%;position: absolute;">
             <div class="boxCard" style="color: #FFF;">
                 {include file="/index/meet"/}
             </div>
@@ -112,3 +115,4 @@
         </li>
     </ul>
 </div>
+
