@@ -1,0 +1,117 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "/meetAdmin/index/welcome.html?t=1"
+  },
+  "logoInfo": {
+    "title": "MeetAdmin",
+    "image": "/adminStatic/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "仪表盘",
+          "href": "/meetAdmin/index/welcome.html?t=1",
+          "icon": "fa fa-dashboard",
+          "target": "_self"
+        },
+        {
+          "title": "前台设置",
+          "href": "/meetAdmin/index/setting.html",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "用户",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "用户列表",
+          "href": "/meetAdmin/users/userslist",
+          "icon": "fa fa-group",
+          "target": "_self"
+        },
+        {
+          "title": "情侣列表",
+          "href": "/meetAdmin/users/userspairlist",
+          "icon": "fa fa-heartbeat",
+          "target": "_self"
+        },
+        {
+          "title": "手动配对",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-gavel",
+          "target": "_self"
+        },
+        {
+          "title": "实名认证",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-sun-o",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "运营",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "充值账单",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-bar-chart-o",
+          "target": "_self"
+        },
+        {
+          "title": "消费账单",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-cart-plus",
+          "target": "_self"
+        },
+        {
+          "title": "广告账单",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-adn",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "工单",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "投诉反馈",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-file",
+          "target": "_self"
+        },
+        {
+          "title": "商务合作",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-thumbs-up",
+          "target": "_self"
+        },
+        {
+          "title": "自助工单",
+          "href": "/meetAdmin/index/#",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

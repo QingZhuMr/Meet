@@ -1,0 +1,147 @@
+<style>
+    /**聊天样式**/
+    .chat {
+        width: 96%;
+        height: 87vh;
+        overflow-y: auto;
+        margin: auto;
+    }
+
+    .chatItem {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 30px;
+        color: #000;
+    }
+
+    .chatItemList {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid #FFF;
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+    .chatBubble {
+        max-width: 70%;
+        float: left;
+        padding: 10px 10px;
+        background-color: #FFF;
+        font-size: 14px;
+        border-radius: 10px;
+        margin-left: 5px;
+        white-space: normal;
+    }
+
+    .triangleMy {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 10px solid #98E165;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 5px;
+    }
+
+    .chatBubbleMy {
+        max-width: 70%;
+        float: right;
+        padding: 10px 10px;
+        background-color: #98E165;
+        font-size: 14px;
+        border-radius: 10px;
+        white-space: normal;
+        margin-right: 5px;
+    }
+
+    .chatEnter {
+        width: 100%;
+        min-height: 60px;
+        border-top: 1px solid #E1E1E1;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .chatEnterFrame {
+        width: 88%;
+        height: 30px;
+        margin-top: 5px;
+        margin-left: 5px;
+        background-color: #FFF;
+        border-radius: 5px;
+        text-indent: 5px;
+        /* border: 1px solid #E1E1E1; */
+    }
+
+    .chatPhiz {
+        margin-top: 5px;
+        margin-right: 5px;
+        font-size: 29px;
+        color: #848484;
+    }
+
+    /* .My{
+    width: 90% !important;
+  } */
+</style>
+
+<div class="boxCardBox">
+    <!-- <h2>Ta</h2> -->
+
+    <div class="chat">
+        <div class="chatItem">
+            <div class="chatItemList">
+                <div class="triangle"></div>
+                <span class="chatBubble">
+                    你好，小竹。很高兴认识你！
+                    很荣幸成为你的Ta，希望我们可以长长久久，一直陪伴彼此~
+                </span>
+
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="chatItem My">
+            <div class="chatItemList">
+                <div class="triangleMy"></div>
+                <span class="chatBubbleMy">
+                    你好。很高兴认识你！
+                    很荣幸成为你的Ta，希望我们可以长长久久，一直陪伴彼此~
+                </span>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="chatItem">
+            <div class="chatItemList">
+                <div class="triangleMy"></div>
+                <span class="chatBubbleMy">
+                    嘻嘻~
+                </span>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+    </div>
+    <div class="chatEnter">
+        <input type="text" class="chatEnterFrame" name="text" placeholder="">
+        <div class="chatPhiz">
+            <i class="far fa-grin-squint"></i>
+        </div>
+    </div>
+</div>

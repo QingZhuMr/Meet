@@ -1,0 +1,92 @@
+{include file="common/head"/}
+<style>
+</style>
+
+<body>
+    <div class="head">
+        <div class="headLogo">
+            <b>M<b class="headLogoText">ee</b>t</b>
+            <!-- <span>登录</span> -->
+        </div>
+    </div>
+
+    <div class="box" style="margin-top: 120px;">
+        <form method="post" id="loginForm">
+            <div class="inputItem">
+                <!-- <div class="inputTitle">手机号码</div> -->
+                <div class="inputBox">
+                    <input type="text" name="phone" placeholder="在这里输入手机号">
+                </div>
+            </div>
+            <div class="inputItem">
+                <!-- <div class="inputTitle">密码</div> -->
+                <div class="inputBox">
+                    <input type="password" name="password" placeholder="在这里输入密码">
+                </div>
+            </div>
+            <div class="inputItem">
+                <div class="inputButton" onclick="submit()">
+                    登录
+                </div>
+            </div>
+            <div class="inputItem" style="text-align: center;margin-top: 20px;">
+                <span onclick="register()" style="color: #166EC2;">我没有账户，现在注册</span>
+            </div>
+        </form>
+
+
+    </div>
+
+    <script>
+        window.onpageshow = function (e) {
+            if (e.persisted) {
+                window.location.reload(true)
+            }
+        }
+        //点击登录触发
+        function submit() {
+            if ($("input[name=phone]").val() == '') {
+                layer.msg('请输入手机号');
+                return false;
+            }
+            if ($("input[name=password]").val() == '') {
+                layer.msg('请输入用户密码');
+                return false;
+            }
+            $.ajax({
+                url: "{:url('dologin')}",
+                data: $("#loginForm").serialize(),
+                type: 'POST',
+                beforeSend: function () {
+                    loadIndex = layer.load(2);
+                },
+                success: function (data) {
+                    layer.close(loadIndex);
+                    if (data.code == 0) {
+                        layer.msg(data.info);
+                        setTimeout(function () {
+                            window.location.replace("{:url('index/index')}")
+                            // location.href = "{:url('index/index')}"
+                        }, 1000);
+                    } else {
+                        layer.msg(data.info);
+                    }
+                }
+            });
+            return false;
+        }
+        //点击我要注册触发
+        function register() {
+            var loadIndex = layer.load(2);
+            //模拟关闭
+            setTimeout(function () {
+                layer.close(loadIndex)
+            }, 100);
+            setTimeout(function () {
+                window.location = "/home/user/register"
+            }, 100);
+
+        }
+
+    </script>
+</body>

@@ -1,0 +1,105 @@
+{include file="common/head"/}
+<div class="head" style="background: none;">
+
+    <div class="back" onclick="back()"></div>
+
+    <div class="headEdit" onclick="usersave()">保存</div>
+
+
+</div>
+<div class="box" style="margin-top: 68px;">
+    <form id="userinfoForm" method="post">
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">昵称</div>
+            <div class="userinfoBoxInput"><input type="text" name="username" placeholder="昵称" value="{$user.username}">
+            </div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">身高(CM)</div>
+            <div class="userinfoBoxInput"><input type="text" name="height" placeholder="身高" value="{$user.height}">
+            </div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">所在省份</div>
+            <div class="userinfoBoxInput"><input type="text" name="province" placeholder="省份" value="{$user.province}">
+            </div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">所在城市</div>
+            <div class="userinfoBoxInput"><input type="text" name="city" placeholder="城市" value="{$user.city}"></div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">毕业学校</div>
+            <div class="userinfoBoxInput"><input type="text" name="school" placeholder="毕业学校" value="{$user.school}">
+            </div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">最高学历</div>
+            <div class="userinfoBoxInput"><input type="text" name="education" placeholder="最高学历"
+                    value="{$user.education}"></div>
+        </div>
+        <div class="userinfoBox">
+            <div class="userinfoBoxTitle">职业</div>
+            <div class="userinfoBoxInput"><input type="text" name="work" placeholder="职业" value="{$user.work}"></div>
+        </div>
+        <div class="userinfoBox" style="display: none;">
+            <input type="text" name="id" value="{$user.id}">
+        </div>
+    </form>
+
+
+</div>
+<script>
+    //点击注册触发
+    function usersave() {
+
+        if ($("input[name=username]").val() == '') {
+            layer.msg('请输入昵称');
+            return false;
+        }
+        if ($("input[name=height]").val() == '') {
+            layer.msg('请输入身高');
+            return false;
+        }
+        if ($("input[name=province]").val() == '') {
+            layer.msg('请输入所在省份');
+            return false;
+        }
+        if ($("input[name=city]").val() == '') {
+            layer.msg('请输入所在城市');
+            return false;
+        }
+        if ($("input[name=education]").val() == '') {
+            layer.msg('请输入最高学历');
+            return false;
+        }
+        if ($("input[name=school]").val() == '') {
+            layer.msg('请输入您的学校');
+            return false;
+        }
+        if ($("input[name=work]").val() == '') {
+            layer.msg('请输入您的职业');
+            return false;
+        }
+        $.ajax({
+            url: "{:url('douserinfo')}",
+            data: $("#userinfoForm").serialize(),
+            type: 'POST',
+            beforeSend: function () {
+                loadIndex = layer.load(2);
+            },
+            success: function (data) {
+                layer.close(loadIndex);
+                if (data.code == 0) {
+                    layer.msg(data.info);
+                    setTimeout(function () {
+                        window.history.back(-1);
+                    }, 1000);
+                } else {
+                    layer.msg(data.info);
+                }
+            }
+        });
+        return false;
+    }
+</script>

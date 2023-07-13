@@ -1,0 +1,114 @@
+{include file="common/head"/}
+
+<style>
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+    .layui-tab .layui-tab-title {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 58px;
+        white-space: nowrap;
+        font-size: 0;
+        border-bottom-width: 0px;
+        border-bottom-style: solid;
+        border-bottom-color: #FFF;
+        transition: all .2s;
+        -webkit-transition: all .2s;
+        /* margin-bottom: 10px; */
+        display: flex;
+        justify-content: space-between;
+        background-color: #FFF;
+        z-index: 9998;
+        border-top: 1px solid #F7F7F7;
+        padding-bottom: 10px;
+    }
+
+    .layui-tab>.layui-tab-title li {
+        /* width: 100%; */
+        min-width: 15%;
+        margin: auto;
+        line-height: 10px;
+        color: #5A5959;
+    }
+
+    /* .layui-tab>.layui-tab-title>li i {
+        font-size: 16px;
+    } */
+
+    .layui-tab>.layui-tab-title>li div {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .layui-tab-brief>.layui-tab-title .layui-this {
+        color: #166EC2;
+        /* font-size: 18px; */
+    }
+
+
+    .layui-tab-brief>.layui-tab-more li.layui-this:after,
+    .layui-tab-brief>.layui-tab-title .layui-this:after {
+
+        border: none;
+        border-radius: 0;
+        border-bottom: 0px solid #166EC2;
+    }
+
+    .layui-tab {
+        margin: 0px 0;
+        text-align: left !important;
+        /* background-color: #CBCBCB; */
+        height: auto;
+    }
+
+    .layui-tab-item {
+        width: 100%;
+        height: auto;
+        background-color: #FFF;
+    }
+
+    .layui-tab-content {
+        padding: 0px 0;
+    }
+</style>
+
+<div class="layui-tab layui-tab-brief">
+
+    <div class="layui-tab-content">
+        <div class="layui-tab-item " style="background-color: #F9F9F9;height: 100vh;">
+            <div class="boxCard">
+                {include file="/index/ta"/}
+            </div>
+        </div>
+
+        <div class="layui-tab-item layui-show" style="background-color: #F5B9B9;height: 100vh;">
+            <div class="boxCard" style="color: #FFF;">
+                {include file="/index/meet"/}
+            </div>
+        </div>
+        <div class="layui-tab-item">
+            <div class="boxCard">
+                {include file="/index/user"/}
+            </div>
+
+        </div>
+    </div>
+
+    <ul class="layui-tab-title" style="background-color: #F9F9F9;border-top: 1px solid #E9E9E9;">
+        <li>
+            <i class="fas fa-comment" style="font-size: 18px;"></i>
+            <div>Ta</div>
+        </li>
+        <li class="layui-this">
+            <i class="fas fa-globe-asia" style="font-size: 18px;"></i>
+            <div>Meet</div>
+        </li>
+        <li>
+            <i class="fas fa-user-alt" style="font-size: 18px;"></i>
+            <div>My</div>
+        </li>
+    </ul>
+</div>
