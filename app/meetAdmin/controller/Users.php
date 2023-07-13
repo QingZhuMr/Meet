@@ -18,12 +18,14 @@ class Users extends BaseController
     public function getUsers()
     {
         $res = DB::name("user")->select();
-//         "msg": "",
-//   "count": 1000,
         return json(['code' => 0,'msg'=>'','data'=>$res]);
     }
     public function userspairlist()//情侣列表
     {
         return View::fetch();
+    }
+    public function getLovers(){
+        $res = DB::name("lovers")->select();
+        return json(['code' => 0,'msg'=>'','data'=>$res]);
     }
 }

@@ -48,12 +48,6 @@
           "target": "_self"
         },
         {
-          "title": "手动配对",
-          "href": "/meetAdmin/index/#",
-          "icon": "fa fa-gavel",
-          "target": "_self"
-        },
-        {
           "title": "实名认证",
           "href": "/meetAdmin/index/#",
           "icon": "fa fa-sun-o",
