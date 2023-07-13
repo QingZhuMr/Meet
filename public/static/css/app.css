@@ -1,0 +1,482 @@
+/****/
+.boxCard {
+    width: 100%;
+    /* padding: 10px; */
+    text-align: left !important;
+
+}
+
+.boxCard h2 {
+    font-size: 26px;
+}
+
+.boxCard p {
+    font-size: 15px;
+}
+
+.boxCardBox {
+    width: 94.5%;
+    margin: auto;
+    padding: 10px;
+}
+
+
+/*主题设置为浅色。*/
+body {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: #fff;
+    color: #353536;
+    position: absolute;
+    top: 0px;
+    /* -moz-user-select:none; 
+        -webkit-user-select:none;
+        -ms-user-select:none; 
+        -khtml-user-select:none;
+        -o-user-select:none;
+        user-select:none;  */
+}
+
+
+a {
+    color: #166EC2;
+}
+
+.head {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    z-index: 9999;
+    display: -webkit-flex;
+    background-color: #FFF;
+    -moz-user-select: none;
+    /* Firefox私有属性 */
+    -webkit-user-select: none;
+    /* WebKit内核私有属性 */
+    -ms-user-select: none;
+    /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none;
+    /* KHTML内核私有属性 */
+    -o-user-select: none;
+    /* Opera私有属性 */
+    user-select: none;
+    /* CSS3属性 */
+    justify-content: space-between;
+}
+
+.headBg {
+    background-color: #FFF !important;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.headEdit {
+    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    color: #255DCE;
+}
+
+.headEdit2 {
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    margin-top: 8px;
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+    color: #A8A8A8;
+}
+
+.back {
+    width: 20px;
+    height: 20px;
+    background-image: url("/static/images/back.png");
+    background-size: cover;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+.headLogo {
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 30px;
+    line-height: 40px;
+    color: #166EC2;
+}
+
+.headLogoText {
+    color: #519BE3;
+}
+
+.headLogo span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.note {
+    width: 100%;
+    height: 100px;
+    line-height: 50px;
+}
+
+.note p {
+    line-height: 20px;
+    font-size: 17px;
+}
+
+
+
+
+/*输入类*/
+input {
+    border: none;
+    padding: 0px;
+    background: none;
+}
+
+.inputItem {
+    min-width: 200px;
+    max-width: 300px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* height: 80px; */
+
+}
+
+input {
+    -webkit-appearance: none !important;
+    border-radius: 0;
+    line-height: normal;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #FFF inset;
+    /* border-bottom: 1px solid #CCC!important; */
+}
+
+.inputTitle {
+    font-size: 17px;
+    font-weight: 600;
+    color: #166EC2;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.inputBox {
+    margin-top: 5px;
+}
+
+.inputBox input {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.inputBox input:focus {
+    outline: none;
+    transition-duration: 0.3s;
+    border-bottom: 1px solid #166EC2;
+}
+
+
+.inputButton {
+    width: 100%;
+    height: 48px;
+    margin: auto;
+    background-color: #166EC2;
+    color: #FFF;
+    font-size: 15px;
+    border-radius: 24px;
+    text-align: center;
+    line-height: 48px;
+    margin-top: 20px;
+}
+
+.inputButton:active {
+    background-color: #255DCE;
+    transition-duration: 0.3s;
+    color: #FFF;
+}
+
+/*通用盒子*/
+
+
+
+.backInput {
+    background-image: url("/static/images/back2.png") !important;
+}
+
+.boxUser {
+    width: 92%;
+    max-width: 700px;
+    padding: 4%;
+    min-height: 50px;
+    background-color: #FFF;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: -10px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.userName {
+    font-size: 22px;
+    display: flex;
+    font-weight: 600;
+}
+
+.school {
+    height: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+    vertical-align: middle;
+    line-height: 30px;
+    display: flex;
+    font-weight: 600;
+}
+
+.schoolCut {
+    margin: 0px 10px;
+    height: 10px;
+    width: 1px;
+    background-color: #C1C1C1;
+    margin-top: 10px;
+}
+
+.userCard {
+    width: 100%;
+    height: 100px;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    text-indent: 10px;
+    margin-top: 10px;
+}
+
+.userCardLi {
+    height: 50px;
+    display: flex;
+    line-height: 50px;
+    font-size: 13px;
+    color: #515253;
+}
+
+.userCardLi div {
+    width: 50%;
+}
+
+.userCardLi span {
+    margin-left: 5px;
+}
+
+.userTags {
+    width: auto;
+    min-height: 26px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.userTag {
+    height: 26px;
+    padding: 0px 10px;
+    background-color: #F4F4F4;
+    line-height: 26px;
+    font-size: 12px;
+    color: #515253;
+    border-radius: 13px;
+    margin-right: 5px;
+}
+
+.addTag {
+    color: #A9AAAA;
+}
+
+.box {
+    width: 94%;
+    max-width: 700px;
+    min-height: 50px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.card h1 {
+    font-weight: 600;
+}
+
+.cardLeft {
+    width: 48.5%;
+    height: 170px;
+    background-color: #E66862;
+    color: #FFF;
+    border-radius: 10px;
+    position: relative;
+    background-size: cover;
+}
+
+.cardLeft h1 {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cardLeft p {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cardGo {
+    width: 100px;
+    height: 30px;
+    background-color: #FFF;
+    color: #166EC2;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    margin-left: 10px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.cardRight {
+    width: 48.5%;
+    color: #FFF;
+
+
+}
+
+.cardRight h1 {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cardRight p {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cardYujian {
+    width: 100%;
+    height: 80px;
+    background-color: #166EC2;
+    border-radius: 10px;
+    /* background-image: url("/static/images/2.png"); */
+    background-size: cover;
+}
+
+.cardMy {
+    width: 100%;
+    height: 80px;
+    background-color: #36B9A7;
+    border-radius: 10px;
+    margin-top: 10px;
+    /* background-image: url("/static/images/3.png"); */
+    background-size: cover;
+}
+
+.cardGuize {
+    width: 100%;
+    height: 80px;
+    background-color: #e77325;
+    border-radius: 10px;
+    /* background-image: url("/static/images/4.png"); */
+    background-size: cover;
+}
+
+.cardKefu {
+    width: 100%;
+    height: 80px;
+    background-color: #8029d1;
+    border-radius: 10px;
+    /* background-image: url("/static/images/5.png"); */
+    background-size: cover;
+}
+
+.foot {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    color: #C1C1C1;
+}
+
+
+/**首页**/
+.postsTitle {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.postsTitle div {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.postIcon {
+    margin-top: 2.5px;
+    color: #255DCE;
+}
+
+.postIconTitle {
+    color: #255DCE;
+}
+
+/**头大**/
+.sex {
+    width: 20px;
+    height: 20px;
+    /* color: #FFF; */
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    /* border-radius: 10px; */
+    margin-top: 6px;
+    margin-left: 2px;
+}
+
+.boy {
+    color: #166EC2;
+}
+
+.girl {
+    color: #E66862;
+}
+
+.userinfoBox {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1px #C1C1C1 solid; */
+}
+
+.userinfoBox input {
+    text-align: right;
+}
