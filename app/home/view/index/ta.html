@@ -97,11 +97,17 @@
 
     .chatMore {
         padding-right: 10px;
-        
+
     }
 
     .chatBody {
         padding-top: 40px;
+    }
+    .taTips{
+        width: 100%;
+        margin-top: 30vh;
+        text-align: center;
+        color: #ADADAD;
     }
 </style>
 
@@ -127,6 +133,9 @@
     <div class="boxCardBox">
         <h2>Ta</h2>
     </div>
+
+    <!--Ta卡片-->
+    {if $user.lock==1}
     <div class="taCard">
         <div class="taCardTop">
             <div class="taAvatar">
@@ -175,22 +184,28 @@
 
 
     </div>
+    {else}
+    <div class="taTips">
+        呜呜呜，你还单身呢，快去Meet叭！
+    </div>
 
+
+    {/if}
 </div>
 
 <script>
-    function onChat(){
-       $(".chatBox").show();
+    function onChat() {
+        $(".chatBox").show();
 
-       $("#boxCard").hide();
-       $("#boxCard").addClass("notclick");//不可点击状态
+        $("#boxCard").hide();
+        $("#boxCard").addClass("notclick");//不可点击状态
 
     }
-    function offChat(){
+    function offChat() {
 
         $(".chatBox").hide();
         $("#boxCard").show();
         $("#boxCard").removeClass("notclick");//移除不可点击状态
     }
-    
+
 </script>
