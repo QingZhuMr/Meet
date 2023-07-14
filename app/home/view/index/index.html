@@ -1,13 +1,16 @@
 {include file="common/head"/}
 
 <style>
-    html,body{
+    html,
+    body {
         height: 100%;
         font-size: 16px;
     }
+
     ::-webkit-scrollbar {
         width: 0px;
     }
+
     .layui-tab .layui-tab-title {
         width: 100%;
         position: fixed;
@@ -100,16 +103,20 @@
     .layui-layer-setwin {
         margin-top: 2px;
         left: 10px !important;
-        
+
     }
 
     .layui-layer-setwin span {
+        width: 32px;
+        height: 32px;
         margin-left: 0px !important;
     }
 
     .layui-icon-close {
         background-image: url("/static/images/back.png");
-        background-size: cover;
+        background-size: 16px; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 
     .layui-icon-close:before {
@@ -157,19 +164,18 @@
 
 <script>
     function responsive() {
-		if(judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
-			$("#footHeight").css("height","64px");
-		} else {
-			console.log("2");
-		}
-	}
-	//初始化加载调用
-	responsive();
+        if (judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
+            $("#footHeight").css("height", "64px");
+        } else {
+            console.log("2");
+        }
+    }
+    //初始化加载调用
+    responsive();
 
-	//监听屏幕变化调用
-	window.addEventListener('resize', function() {
-		// console.log(222, judgeBigScreen())
-		responsive();
-	})
+    //监听屏幕变化调用
+    window.addEventListener('resize', function () {
+        // console.log(222, judgeBigScreen())
+        responsive();
+    })
 </script>
-
