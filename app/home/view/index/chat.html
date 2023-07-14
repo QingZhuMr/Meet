@@ -60,21 +60,21 @@
     </div>
 </div>
 <script>
-    function responsive() {
-        if (judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
-            $(".chatEnter").css("height", "68px");
-        } else {
-            console.log("2");
-        }
-    }
-    //初始化加载调用
-    responsive();
+    // function responsive() {
+    //     if (judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
+    //         $(".chatEnter").css("height", "68px");
+    //     } else {
+    //         console.log("2");
+    //     }
+    // }
+    // //初始化加载调用
+    // responsive();
 
-    //监听屏幕变化调用
-    window.addEventListener('resize', function () {
-        // console.log(222, judgeBigScreen())
-        responsive();
-    })
+    // //监听屏幕变化调用
+    // window.addEventListener('resize', function () {
+    //     // console.log(222, judgeBigScreen())
+    //     responsive();
+    // })
 </script>
 
 
