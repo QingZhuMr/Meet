@@ -24,6 +24,8 @@ class Index extends BaseController
         // View::assign('index', $index);
         $user_id = Session::get('user_id');
         $user = Db::name('user')->where('id', $user_id)->find();
+
+
         $byear = $user['year'];
         $bmonth = $user['month'];
         $bday = $user['day'];
