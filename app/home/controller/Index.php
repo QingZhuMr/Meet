@@ -86,7 +86,18 @@ class Index extends BaseController
             return  redirect('/home/user/login');
         }
         $data = Request::get();
-        // dump($data);
+        if($data["id"]==null||!$data["id"]){
+            return  redirect('/home/index/index');
+            //判断浏览器数字是否为空
+        }
+
+        $user_id=Session::get('user_id');
+        $user = DB::name('user')->where("id",$user_id)->find();
+        $lover= DB::name('user')->where("id",$data['id'])->find();
+        if($user['lid']!=$lover['lid']){
+            return  redirect('/home/index/index');
+            //判断是否是情侣，如果不是，则退出。
+        }
 
         return View::fetch();
     }
