@@ -19,7 +19,14 @@
         top: 2px;
     }
 </style>
-<div class="boxCardBoxNew">
+<div class="chatHead">
+    <div class="chatBack" onclick="back()">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div>设置</div>
+    <div> </div>
+</div>
+<div class="boxCardBoxNew" style="margin-top: 60px;">
     <div class="userCard">
         <form class="layui-form layui-form-pane" action="form.html">
             <div class="userCardLi" style="font-size: 15px;color: #474747;">
@@ -51,9 +58,39 @@
         </div>
 
     </div>
-    
+    <div class="userCard" style="height: 50px;">
+        <div style="text-align: center;
+             height: 50px;
+            line-height: 50px;
+            " onclick="quit()">
+            退出登录
+        </div>
+    </div>
+
 </div>
 <script>
+    function quit() {
+
+        $.ajax({
+            url: "{:url('api/api/quit')}",
+            data: {
+                id: "{$user.id}",
+            },
+            type: 'POST',
+            success: function (data) {
+                if (data.code == 0) {
+                    layer.msg(data.info);
+                    setTimeout(function () {
+                        window.location.replace("{:url('/home/user/login')}")
+                    }, 1000);
+                } else {
+                    layer.msg(data.info);
+                }
+            }
+        })
+
+
+    }
 
     layui.use(['form', 'laydate', 'util'], function () {
         var form = layui.form;

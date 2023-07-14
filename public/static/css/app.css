@@ -480,3 +480,157 @@ input:-webkit-autofill {
 .userinfoBox input {
     text-align: right;
 }
+
+  /**聊天样式**/
+  .chat {
+    width: 96%;
+    height: 87vh;
+    overflow-y: auto;
+    margin: auto;
+}
+
+.chatItem {
+    width: 100%;
+    margin-top: 10px;
+    min-height: 30px;
+    color: #000;
+}
+
+.chatItemList {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid #FFF;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.chatBubble {
+    max-width: 70%;
+    float: left;
+    padding: 10px 10px;
+    background-color: #FFF;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-left: 5px;
+    white-space: normal;
+}
+
+.triangleMy {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #98E165;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 5px;
+}
+
+.chatBubbleMy {
+    max-width: 70%;
+    float: right;
+    padding: 10px 10px;
+    background-color: #98E165;
+    font-size: 14px;
+    border-radius: 10px;
+    white-space: normal;
+    margin-right: 5px;
+}
+
+.chatEnter {
+    width: 100%;
+    min-height: 60px;
+    border-top: 1px solid #E1E1E1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(249, 249, 249);;
+}
+
+.chatEnterFrame {
+    width: 85%;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #FFF;
+    border-radius: 5px;
+    text-indent: 5px;
+    /* border: 1px solid #E1E1E1; */
+}
+
+.chatPhiz {
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 15px;
+    font-size: 25px;
+    color: #12A3E4;
+}
+
+.chatBox {
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    position: fixed;
+    padding-top: 60px;
+    overflow-y: scroll;
+    z-index: 9998;
+    /* display: none; */
+}
+
+.chatHead {
+    width: 100%;
+    height: 54px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    display: flex;
+    z-index: 9999;
+    display: -webkit-flex;
+    background-color: #F9F9F9;
+    -moz-user-select: none;
+    /* Firefox私有属性 */
+    -webkit-user-select: none;
+    /* WebKit内核私有属性 */
+    -ms-user-select: none;
+    /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none;
+    /* KHTML内核私有属性 */
+    -o-user-select: none;
+    /* Opera私有属性 */
+    user-select: none;
+    /* CSS3属性 */
+    justify-content: space-between;
+    line-height: 54px;
+    border-bottom: 1px solid #E1E1E1;
+    color: rgba(0, 0, 0, .85) !important;
+}
+
+.chatBack {
+    height: 54px;
+    line-height: 54px;
+    padding-left: 10px;
+}
+
+.chatMore {
+    height: 54px;
+    line-height: 54px;
+    padding-right: 10px;
+
+}
+
+.chatBody {
+    padding-top: 0px;
+}

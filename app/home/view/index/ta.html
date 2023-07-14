@@ -156,18 +156,7 @@
 
     <script>
         function onChat() {
-
-            layer.open({
-                type: 2,
-                offset: 'b',
-                anim: 'slideLeft',
-                area: ['100%', '100%'],
-                shade: 0.1,
-                title: '{$lover.username}',
-                shadeClose: true,
-                id: 'siteBox',
-                content: '/home/index/chat/?id={$lover.id}'
-            });
+            window.location.href="/home/index/chat/?id={$lover.id}";
         }
     </script>
     {else}
