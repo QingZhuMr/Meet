@@ -10,6 +10,7 @@ class Chat extends BaseController
 {
     public function chat()
     {
+        
         $url = Request::domain();
         //$index=Db::name('system')->where('id', 1)->find();
        // var_dump($index);
