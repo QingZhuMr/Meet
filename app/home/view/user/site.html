@@ -54,26 +54,6 @@
     
 </div>
 <script>
-    function quit(){
-  
-        $.ajax({
-                url: "{:url('api/api/quit')}",
-                data: {
-                    id: "{$user.id}",
-                },
-                type: 'POST',
-                success: function (data) {
-                    if (data.code == 0) {
-                        layer.msg(data.info);
-                        setTimeout(function () {  
-                            window.location.replace("{:url('/home/user/login')}")
-                        }, 1000);
-                    } else {
-                        layer.msg(data.info);
-                    }
-                }
-            })
-    }
 
     layui.use(['form', 'laydate', 'util'], function () {
         var form = layui.form;
