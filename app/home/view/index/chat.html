@@ -68,7 +68,7 @@
 
     .chatEnter {
         width: 100%;
-        min-height: 64px;
+        min-height: 60px;
         border-top: 1px solid #E1E1E1;
         position: fixed;
         bottom: 0;
@@ -203,8 +203,26 @@
         </div>
     </div>
 </div>
+<script>
+    function responsive() {
+		if(judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
+			$(".chatEnter").css("height","68px");
+		} else {
+			console.log("2");
+		}
+	}
+	//初始化加载调用
+	responsive();
+
+	//监听屏幕变化调用
+	window.addEventListener('resize', function() {
+		// console.log(222, judgeBigScreen())
+		responsive();
+	})
+</script>
 
 
+<!-- 
 <script>
     const ua = navigator.userAgent;
     const iOS = /iPad|iPhone|iPod/.test(ua);
@@ -221,4 +239,4 @@
             }
         }, 300);
     });
-</script>
+</script> -->
