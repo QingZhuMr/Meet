@@ -13,7 +13,7 @@
         position: fixed;
         left: 0;
         bottom: 0;
-        height: 64px;
+        height: 48px;
         white-space: nowrap;
         font-size: 0;
         border-bottom-width: 0px;
@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <ul class="layui-tab-title" style="background-color: #F9F9F9;border-top: 1px solid #E9E9E9;">
+    <ul class="layui-tab-title" id="footHeight" style="background-color: #F9F9F9;border-top: 1px solid #E9E9E9;">
         <li class="layui-this">
             <i class="fas fa-comment" style="font-size: 18px;"></i>
             <div>Ta</div>
@@ -154,4 +154,22 @@
         </li>
     </ul>
 </div>
+
+<script>
+    function responsive() {
+		if(judgeBigScreen()) { //judgeBigScreen() 调用公共js里封装的函数，这里根据返回值 true 或false ,返回true的话 则为全面屏 。
+			$("#footHeight").css("height","64px");
+		} else {
+			console.log("2");
+		}
+	}
+	//初始化加载调用
+	responsive();
+
+	//监听屏幕变化调用
+	window.addEventListener('resize', function() {
+		// console.log(222, judgeBigScreen())
+		responsive();
+	})
+</script>
 
