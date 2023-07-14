@@ -36,6 +36,31 @@
     .userCard {
         background-color: #FBFBFB;
     }
+    .layui-layer-dialog{
+        border-radius: 10px !important;
+    }
+
+    .layui-layer-dialog .layui-layer-title {
+        display: none;
+    }
+
+    .layui-layer-dialog .layui-layer-setwin {
+        display: none;
+    }
+
+    .layui-layer-dialog .layui-layer-btn {
+        text-align: center;
+    }
+
+    .layui-layer-btn a {
+        height: 38px;
+        line-height: 38px;
+        margin: 5px 5px 0;    
+        padding: 0 33px;
+        border-radius: 10px;
+        border: 0px;
+        background-color: #F4F4F4;
+    }
 </style>
 <div class="userBg">
     <img src="{$user.background}" width="100%">
@@ -110,8 +135,14 @@
                 <i class="fas fa-chevron-right"></i>
             </div>
         </div>
-
-
+    </div>
+    <div class="userCard" style="height: 50px;">
+        <div style="text-align: center;
+             height: 50px;
+            line-height: 50px;
+            " onclick="quit()">
+            退出登录
+        </div>
     </div>
 
 </div>
@@ -119,25 +150,46 @@
 
 
 <script>
+    function quit() {
+        layer.confirm('是否要退出当前账号？', function () {
+            $.ajax({
+                url: "{:url('api/api/quit')}",
+                data: {
+                    id: "{$user.id}",
+                },
+                type: 'POST',
+                success: function (data) {
+                    if (data.code == 0) {
+                        layer.msg(data.info);
+                        setTimeout(function () {
+                            window.location.replace("{:url('/home/user/login')}")
+                        }, 1000);
+                    } else {
+                        layer.msg(data.info);
+                    }
+                }
+            })
+        }, function () {
+
+        });
+
+    }
     function serve() {
         layer.msg("暂未开放");
     }
     function onSite() {
         layer.open({
-            type: 1,
+            type: 2,
             offset: 'b',
             anim: 'slideLeft',
             area: ['100%', '100%'],
             shade: 0.1,
-            // closeBtn: 1,
             title: '设置',
             shadeClose: true,
             id: 'siteBox',
-            content: '<div style="padding: 16px;"></div>'
+            content: '/home/user/site'
         });
-        // $("#userSite").show();
+
     }
-    function offSite() {
-        // $("#userSite").hide();
-    }
+
 </script>

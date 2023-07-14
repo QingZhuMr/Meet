@@ -54,6 +54,21 @@ class User extends BaseController
 
         // return View::fetch();
     }
+
+    public function site() //设置页面
+    {
+        if(Session::has('user_id')!=true){
+            return  json('尚未登录');
+        }
+        $user_id = Session::get('user_id');
+        $user=DB::name("user")->where('id',$user_id)->find();
+        View::assign('user', $user);
+        return View::fetch();
+    }
+
+
+
+    //下面是接口
     public function doregister() //注册接口
     {
         $data = Request::post();
@@ -123,4 +138,5 @@ class User extends BaseController
         
 
     }
+
 }

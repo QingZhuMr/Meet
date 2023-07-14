@@ -1249,6 +1249,63 @@
             "install-path": "../topthink/think-template"
         },
         {
+            "name": "topthink/think-throttle",
+            "version": "v1.3.1",
+            "version_normalized": "1.3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-throttle.git",
+                "reference": "daa5bace5e4844a346af403a0c44d9ce4bf7af06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-throttle/zipball/daa5bace5e4844a346af403a0c44d9ce4bf7af06",
+                "reference": "daa5bace5e4844a346af403a0c44d9ce4bf7af06",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "topthink/framework": "^6.0.0"
+            },
+            "time": "2022-08-25T14:35:52+00:00",
+            "type": "library",
+            "extra": {
+                "think": {
+                    "config": {
+                        "throttle": "src/config.php"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "think\\middleware\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "hongweipeng",
+                    "email": "hongweichen8888@sina.com"
+                }
+            ],
+            "description": "throttle middleware for thinkphp6",
+            "support": {
+                "issues": "https://github.com/top-think/think-throttle/issues",
+                "source": "https://github.com/top-think/think-throttle/tree/v1.3.1"
+            },
+            "install-path": "../topthink/think-throttle"
+        },
+        {
             "name": "topthink/think-trace",
             "version": "v1.6",
             "version_normalized": "1.6.0.0",

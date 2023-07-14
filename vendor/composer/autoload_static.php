@@ -20,6 +20,7 @@ class ComposerStaticInit093a705a54ca58d71969e4bbcd5ec7c6
         array (
             'think\\view\\driver\\' => 18,
             'think\\trace\\' => 12,
+            'think\\middleware\\' => 17,
             'think\\app\\' => 10,
             'think\\' => 6,
         ),
@@ -58,6 +59,10 @@ class ComposerStaticInit093a705a54ca58d71969e4bbcd5ec7c6
         'think\\trace\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-trace/src',
+        ),
+        'think\\middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topthink/think-throttle/src',
         ),
         'think\\app\\' => 
         array (

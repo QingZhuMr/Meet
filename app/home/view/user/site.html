@@ -1,0 +1,105 @@
+{include file="common/head"/}
+<style>
+    .boxCardBoxNew {
+        width: 94.5%;
+        min-height: 500px;
+        z-index: 2;
+        position: relative;
+        background-color: #FFF;
+        margin: auto;
+        padding-top: 10px;
+    }
+
+    .userCard {
+        height: auto;
+        background-color: #FBFBFB;
+    }
+
+    .layui-form-switch i {
+        top: 2px;
+    }
+</style>
+<div class="boxCardBoxNew">
+    <div class="userCard">
+        <form class="layui-form layui-form-pane" action="form.html">
+            <div class="userCardLi" style="font-size: 15px;color: #474747;">
+                <div>被遇见</div>
+                <div style="text-align: right;padding-right: 20px;">
+
+                    <div class="layui-input-block" style="margin-right: 10px;">
+                        <input type="checkbox" {if $user.islock==1}{else}checked{/if} name="open" lay-skin="switch"
+                            lay-filter="switchTest" title="">
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="userCard">
+        <div class="userCardLi" style="font-size: 15px;color: #474747;">
+            <div>帮助与反馈</div>
+            <div style="text-align: right;padding-right: 10px;">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        <div class="userCardLi" style="font-size: 15px;color: #474747;">
+            <div>关于Meet</div>
+            <div style="text-align: right;padding-right: 10px;">
+                <span>版本 0.0.3</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+<script>
+    function quit(){
+  
+        $.ajax({
+                url: "{:url('api/api/quit')}",
+                data: {
+                    id: "{$user.id}",
+                },
+                type: 'POST',
+                success: function (data) {
+                    if (data.code == 0) {
+                        layer.msg(data.info);
+                        setTimeout(function () {  
+                            window.location.replace("{:url('/home/user/login')}")
+                        }, 1000);
+                    } else {
+                        layer.msg(data.info);
+                    }
+                }
+            })
+    }
+
+    layui.use(['form', 'laydate', 'util'], function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        var util = layui.util;
+        // 指定开关事件
+        form.on('switch(switchTest)', function (data) {
+
+            $.ajax({
+                url: "{:url('api/api/islock')}",
+                data: {
+                    id: "{$user.id}",
+                    lock: "{$user.lock}",
+                    islock: this.checked
+                },
+                type: 'POST',
+                success: function (data) {
+                    if (data.code == 0) {
+                        layer.msg(data.info);
+                    } else {
+                        layer.msg(data.info);
+                    }
+                }
+            })
+        });
+    });
+
+</script>
