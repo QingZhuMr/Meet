@@ -72,6 +72,9 @@ class Index extends BaseController
             if ($lover['sign'] == null) {
                 $lover['sign'] = "暂无个性签名";
             }
+            $lovers = DB::name('lovers')->where('lid', $user['lid'])->find();
+            $lovers["timeEnd"]=$lovers["time"]+259200;
+            View::assign('lovers', $lovers);
             View::assign('lover', $lover);
         }
 
@@ -86,15 +89,15 @@ class Index extends BaseController
             return  redirect('/home/user/login');
         }
         $data = Request::get();
-        if($data["id"]==null||!$data["id"]){
+        if ($data["id"] == null || !$data["id"]) {
             return  redirect('/home/index/index');
             //判断浏览器数字是否为空
         }
 
-        $user_id=Session::get('user_id');
-        $user = DB::name('user')->where("id",$user_id)->find();
-        $lover= DB::name('user')->where("id",$data['id'])->find();
-        if($user['lid']!=$lover['lid']){
+        $user_id = Session::get('user_id');
+        $user = DB::name('user')->where("id", $user_id)->find();
+        $lover = DB::name('user')->where("id", $data['id'])->find();
+        if ($user['lid'] != $lover['lid']) {
             return  redirect('/home/index/index');
             //判断是否是情侣，如果不是，则退出。
         }

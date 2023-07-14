@@ -23,6 +23,8 @@ class UserModel extends Model
        // $data['city'] = null;
         // $data['username'] = "用户" . $rand_str;
 
+        $num = rand(1,10);
+
         $user           = new UserModel;
         $user->username = $data['username'];
         $user->phone    = $data['phone'];
@@ -39,7 +41,7 @@ class UserModel extends Model
        // $user->school = $data['school'];//学校
         $user->height = $data['height'];//身高
         $user->initialize = '1';
-        $user->avatar = '/static/images/avatar/1.jpg';
+        $user->avatar = '/static/images/momo/'.$num.'jpg';
         $user->background = '/static/images/bg/bg.jpg';
         $user->save();
         $id = $user->id;

@@ -14,12 +14,13 @@
         width: 90px;
         height: 90px;
         overflow: hidden;
-        border-radius: 45px;
+        border-radius: 90px;
         position: absolute;
         bottom: 0;
         margin-bottom: -65px;
         margin-left: 10px;
         border: 3px solid #FFF;
+        box-shadow: #8E8F8F 0px 2px 8px;
     }
 
     .taAvatar img {
@@ -47,18 +48,46 @@
 
     .userChat {
         width: 120px;
-        height: 40px;
-        line-height: 40px;
+        height: 48px;
+        line-height: 48px;
         background-color: #166EC2;
         float: right;
         border-radius: 10px 0px 0px 0px;
         color: #FFF;
+        font-size: 20px;
     }
+
     .taTips {
         width: 100%;
         margin-top: 30vh;
         text-align: center;
         color: #ADADAD;
+    }
+
+    .taTime {
+        padding: 5px 10px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 14px;
+        background-color: rgba(59, 59, 59, 0.5);
+        color: #FFF;
+        /* margin-top: 10px; */
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    .taChatNum {
+
+        padding: 5px 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 14px;
+        background-color: rgba(59, 59, 59, 0.5);
+        color: #FFF;
+        /* margin-top: 10px; */
+        border-radius: 0px 0px 0px 10px;
+
     }
 </style>
 
@@ -74,6 +103,8 @@
     {if $user.lock==1 && $user.lid!=null}
     <div class="taCard">
         <div class="taCardTop" id="taCardTop" style="background-image: url('{$lover.background}');">
+            <div class="taTime">{$lovers.timeEnd|date="Y年m月d日 H:i"} 到期</div>
+            <div class="taChatNum">0条未读消息</div>
             <div class="taAvatar">
                 <img id="taAvatar" src="{$lover.avatar}">
             </div>
@@ -115,7 +146,7 @@
             </div>
 
             <div class="userChat" onclick="onChat()">
-                <i class="fas fa-comments"></i> 聊天
+                <i class="fas fa-comments"></i>
             </div>
 
         </div>
