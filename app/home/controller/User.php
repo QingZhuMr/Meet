@@ -35,6 +35,7 @@ class User extends BaseController
     public function dologin() //登录接口
     {
         $data = Request::post();
+        
         //验证
         try {
             validate(UserValidate::class)->check($data);

@@ -1,31 +1,61 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\api\controller;
 
 use app\BaseController;
 use think\facade\Db;
 use think\facade\Request;
 use app\api\model\LoverModel;
+use app\Request as AppRequest;
+use app\api\validate\UserValidate; //验证
+use app\api\model\UserModel; //模型
 use think\facade\Session;
 use think\middleware\Throttle;
+use think\exception\ValidateException;
 
 class Api extends BaseController
 {
-    protected $middleware =[
+    protected $middleware = [
         throttle::class
     ];
+    public function login() //登录接口
+    {
+        $data = Request::post();
+        //验证
+        try {
+            validate(UserValidate::class)->check($data);
+        } catch (ValidateException $e) {
+            // 验证失败 输出错误信息
+            return json(['code' => 1, 'info' => $e->getError()]);
+        }
+        $db = new UserModel();
+        $res = $db->getUsersLogin($data);
+
+        if ($res['code'] == 0) {
+            // Session::set('user_id', $res['id']);
+            // $user_id=$res['id'];
+            // $uid = DB::name('user')->where("id",$res['id'])->find('id');
+            return json($res);
+        } else {
+            return json($res);
+        }
+
+        // return View::fetch();
+    }
 
     public function onMeet() //情侣配对
     {
-        
-        
+
+
         // if (!$this- > requestAccess ()) { 
         //     echo json ([ 'code'=>200, 'msg'=>'接口调用过于频繁' ])
         // };
         $data = Request::post();
 
         $user_id = Session::get('user_id');
-        if($data['id']!=$user_id){
+        if ($data['id'] != $user_id) {
             return json(['code' => '1', 'info' => '操作与当前在线用户身份不符']);
         }
 
@@ -63,7 +93,7 @@ class Api extends BaseController
             $lover['manUsername'] = $userMeet['username']; //男方昵称
             $lover['womanUsername'] = $userUsername; //女方昵称
             $lover['time'] = time(); //开始时间
-            $lover['lid'] = substr(md5(time()), 0, 6); //情侣唯一识别码
+            $lover['lid'] = substr(md5($lover['time']), 0, 6); //情侣唯一识别码
             $db = new LoverModel();
             $res = $db->addLover($lover);
 
@@ -72,8 +102,8 @@ class Api extends BaseController
                 $lock2 = DB::name('user')->where("id", $userMeet['id'])->update(["lock" => '1', "islock" => '1', "lid" => $lover['lid']]);
                 if ($lock || $lock2) {
                     return json($res);
-                }else{
-                    return json(['code'=>'1','info'=>'更新关系出现意外']);
+                } else {
+                    return json(['code' => '1', 'info' => '更新关系出现意外']);
                 }
             } else {
                 return json($res);
@@ -101,7 +131,7 @@ class Api extends BaseController
             $lover['manUsername'] = $userUsername; //男方昵称
             $lover['womanUsername'] = $userMeet['username']; //女方昵称
             $lover['time'] = time(); //开始时间
-            $lover['lid'] = substr(md5(time()), 0, 10); //情侣唯一识别码
+            $lover['lid'] = substr(md5($lover['time']), 0, 10); //情侣唯一识别码
             $db = new LoverModel();
             $res = $db->addLover($lover);
 
@@ -110,8 +140,8 @@ class Api extends BaseController
                 $lock2 = DB::name('user')->where("id", $userMeet['id'])->update(["lock" => '1', "islock" => '1', "lid" => $lover['lid']]);
                 if ($lock || $lock2) {
                     return json($res);
-                }else{
-                    return json(['code'=>'1','info'=>'更新关系出现意外']);
+                } else {
+                    return json(['code' => '1', 'info' => '更新关系出现意外']);
                 }
             } else {
                 return json($res);
@@ -119,44 +149,53 @@ class Api extends BaseController
         }
     }
 
-    // public function myMeet() //我的情侣 【废弃】
-    // {
-    //     $data = Request::post();
-    //     $id = $data['id'];
-    //     $sex = $data['sex'];
-    //     $lid = $data['lid'];
-    //     if ($sex == 0) { //如果是女用户
-    //         $sexNew = 1;
-    //     }
-    //     if ($sex == 1) { //如果是男用户
-    //         $sexNew = 0;
-    //     }
-    //     $user = Db::name('user')->where("lid", $lid)->where('sex', $sexNew)->withoutField('password')->find();
-    //     $byear = $user['year'];
-    //     $bmonth = $user['month'];
-    //     $bday = $user['day'];
+    public function myMeet() //我的情侣 
+    {
+        $data = Request::get();
+        $id = $data['id'];
+        // Session::has('user_id');
+        // if(Session::has('user_id')!=true){
+        //     json(['code'=>'401']);
+        // };
+        $sex = 1;
+        $lid = '148e820111';
+        // $sex = $data['sex'];
+        // $lid = $data['lid'];
+        if ($sex == 0) { //如果是女用户
+            $sexNew = 1;
+        }
+        if ($sex == 1) { //如果是男用户
+            $sexNew = 0;
+        }
+        $user = Db::name('user')->where("lid", $lid)->where('sex', $sexNew)->withoutField('password,phone')->find();
+        $byear = $user['year'];
+        $bmonth = $user['month'];
+        $bday = $user['day'];
 
-    //     $tyear = date('Y');
-    //     $tmonth = date('m');
-    //     $tday = date('d');
+        $tyear = date('Y');
+        $tmonth = date('m');
+        $tday = date('d');
 
-    //     $age = $tyear - $byear;
-    //     if ($bmonth > $tmonth || $bmonth == $tmonth && $bday > $tday) {
-    //         $age--;
-    //     }
-    //     $user['age'] = $age;
-    //     if ($user['sign'] == null) {
-    //         $user['sign'] = "暂无个性签名";
-    //     }
-    //     return json(['code' => 0, 'info' => '获取成功', 'user' => $user]);
-    // }
+        $age = $tyear - $byear;
+        if ($bmonth > $tmonth || $bmonth == $tmonth && $bday > $tday) {
+            $age--;
+        }
+        $user['age'] = $age;
+        if ($user['sign'] == null) {
+            $user['sign'] = "暂无个性签名";
+        }
+        $lovers = DB::name('lovers')->where('lid', $user['lid'])->find();
+        $user["timeEnd"] = $lovers["time"] + 259200;
+        $user["timeEnd"] = date('Y年m月d日 H:m', $user["timeEnd"]);
+        return json(['code' => '0', 'data' => $user]);
+    }
 
     public function islock() //被遇见设置接口
     {
         $data = Request::post();
         $id = $data['id'];
         $user_id = Session::get('user_id');
-        if($data['id']!=$user_id){
+        if ($data['id'] != $user_id) {
             return json(['code' => '1', 'info' => '操作与当前在线用户身份不符']);
         }
         if ($data['lock'] == 1) {
@@ -183,10 +222,34 @@ class Api extends BaseController
     {
         $data = Request::post();
         $user_id = Session::get('user_id');
-        if($data['id']!=$user_id){
+        if ($data['id'] != $user_id) {
             return json(['code' => '1', 'info' => '操作与当前在线用户身份不符']);
         }
         Session::delete('user_id', $data['id']);
-        return json(['code'=>'0','info'=>'退出当前账号成功']);
+        return json(['code' => '0', 'info' => '退出当前账号成功']);
     }
+
+    // public function myMeet() //测试接口
+    // {
+    //     $data = Request::get();
+    //     $id = $data['id'];
+    //     $res = Db::name('user')->where('id', $id)->withoutField('password,phone')->find();
+    //     $byear = $res['year'];
+    //     $bmonth = $res['month'];
+    //     $bday = $res['day'];
+
+    //     $tyear = date('Y');
+    //     $tmonth = date('m');
+    //     $tday = date('d');
+
+    //     $age = $tyear - $byear;
+    //     if ($bmonth > $tmonth || $bmonth == $tmonth && $bday > $tday) {
+    //         $age--;
+    //     }
+    //     $res['age'] = $age;
+    //     if ($res['sign'] == null) {
+    //         $res['sign'] = "暂无个性签名";
+    //     }
+    //     return json($res);
+    // }
 }

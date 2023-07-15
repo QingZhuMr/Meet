@@ -9,8 +9,11 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 use think\facade\Route;
+use think\Middleware;
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP6!';
-});
-
+// Route::get('think', function () {
+//     return 'hello,ThinkPHP6!';
+// });
+// Route::post(function () {
+//     Route::post(rule: 'login', route: 'api/login');
+// })->Middleware(Middleware:'check');

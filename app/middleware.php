@@ -8,5 +8,6 @@ return [
     // Session初始化
     // \think\middleware\SessionInit::class
     'think\middleware\SessionInit',
-    \think\middleware\Throttle::class
+    \think\middleware\Throttle::class,
+    \think\middleware\AllowCrossDomain::class,
 ];
